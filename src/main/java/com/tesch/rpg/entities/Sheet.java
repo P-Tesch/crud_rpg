@@ -3,11 +3,14 @@ package com.tesch.rpg.entities;
 import com.tesch.rpg.enums.Alignment;
 import com.tesch.rpg.enums.Organization;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 import lombok.Builder;
 import lombok.Data;
@@ -44,4 +47,7 @@ public class Sheet {
     @Column(name = "organization")
     private Organization organization;
     
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "stats_id", referencedColumnName = "stats_id")
+    private Stats stats;
 }
