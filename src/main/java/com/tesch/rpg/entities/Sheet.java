@@ -54,4 +54,8 @@ public class Sheet {
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "skills_id", referencedColumnName = "skills_id", nullable = false)
     private Skills skills;
+
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "attributes_id", referencedColumnName = "attributes_id", nullable = false)
+    private Attributes attributes;
 }
