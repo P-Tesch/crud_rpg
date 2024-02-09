@@ -16,31 +16,31 @@ import lombok.Data;
 public class Stats {
     
     @Id
-    @Column(name = "stat_id")
+    @Column(name = "stats_id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "strength")
+    @Column(name = "strength", nullable = false)
     private Integer strength;
 
-    @Column(name = "dexterity")
+    @Column(name = "dexterity", nullable = false)
     private Integer dexterity;
 
-    @Column(name = "agility")
+    @Column(name = "agility", nullable = false)
     private Integer agility;
 
-    @Column(name = "endurance")
+    @Column(name = "endurance", nullable = false)
     private Integer endurance;
 
-    @Column(name = "charisma")
+    @Column(name = "charisma", nullable = false)
     private Integer charisma;
 
-    @Column(name = "perception")
+    @Column(name = "perception", nullable = false)
     private Integer perception;
 
-    @Column(name = "inteligence")
+    @Column(name = "inteligence", nullable = false)
     private Integer inteligence;
 
-    @Column(name = "class")
+    @Column(name = "class", nullable = false)
     private Integer classStat;
 }

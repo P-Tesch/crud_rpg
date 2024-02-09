@@ -26,28 +26,32 @@ public class Sheet {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "name", length = 50)
+    @Column(name = "name", length = 50, nullable = false)
     private String name;
 
-    @Column(name = "portrait")
+    @Column(name = "portrait", nullable = false)
     private Byte[] portrait;
 
-    @Column(name = "description")
+    @Column(name = "description", nullable = false)
     private String description;
 
-    @Column(name = "background")
+    @Column(name = "background", nullable = false)
     private String background;
 
-    @Column(name = "creation_points")
+    @Column(name = "creation_points", nullable = false)
     private Integer creationPoints;
 
-    @Column(name = "alignment")
+    @Column(name = "alignment", nullable = true)
     private Alignment alignment;
 
-    @Column(name = "organization")
+    @Column(name = "organization", nullable = true)
     private Organization organization;
     
     @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "stats_id", referencedColumnName = "stats_id")
+    @JoinColumn(name = "stats_id", referencedColumnName = "stats_id", nullable = false)
     private Stats stats;
+
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "skills_id", referencedColumnName = "skills_id", nullable = false)
+    private Skills skills;
 }
