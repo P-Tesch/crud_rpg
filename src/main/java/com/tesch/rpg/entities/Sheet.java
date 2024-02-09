@@ -1,5 +1,7 @@
 package com.tesch.rpg.entities;
 
+import java.util.Set;
+
 import com.tesch.rpg.enums.Alignment;
 import com.tesch.rpg.enums.Organization;
 
@@ -10,6 +12,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 import lombok.Builder;
@@ -58,4 +61,7 @@ public class Sheet {
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "attributes_id", referencedColumnName = "attributes_id", nullable = false)
     private Attributes attributes;
+
+    @OneToMany(mappedBy = "sheet", cascade = CascadeType.ALL)
+    private Set<Advantage> advantages;
 }
