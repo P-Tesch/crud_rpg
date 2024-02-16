@@ -1,5 +1,5 @@
-CREATE TABLE abilities (
-	"ability_id" serial PRIMARY KEY,
+CREATE TABLE sonata_abilities (
+	"sonata_ability_id" serial PRIMARY KEY,
     "name" VARCHAR NOT NULL,
     "description" VARCHAR NOT NULL,
     "level" INTEGER NOT NULL,
