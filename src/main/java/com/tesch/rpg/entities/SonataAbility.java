@@ -7,29 +7,32 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
-import jakarta.persistence.OneToOne;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import lombok.Builder;
 import lombok.Data;
 
 @Entity
-@Table(name = "users")
-@Builder
+@Table(name = "sonata_abilities")
 @Data
-public class User {
+@Builder
+public class SonataAbility {
     
     @Id
-    @Column(name = "user_id")
+    @Column(name = "sonata_ability_id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "login", length = 50, nullable = false, unique = true)
-    private String login;
+    @Column(name = "name")
+    private String name;
 
-    @Column(name = "password", length = 20, nullable = false)
-    private String password;
+    @Column(name = "description")
+    private String description;
 
-    @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "sheet_id", referencedColumnName = "sheet_id", nullable = false)
-    private Sheet sheet;
+    @Column(name = "level")
+    private Integer level;
+
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "sonata_id", referencedColumnName = "sonata_id", nullable = false)
+    private Sonata sonata;
 }

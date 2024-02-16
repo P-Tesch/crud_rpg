@@ -7,29 +7,35 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
-import jakarta.persistence.OneToOne;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import lombok.Builder;
 import lombok.Data;
 
 @Entity
-@Table(name = "users")
-@Builder
+@Table(name = "mystic_eyes")
 @Data
-public class User {
+@Builder
+public class MysticEyes {
     
     @Id
-    @Column(name = "user_id")
+    @Column(name = "mystic_eye_id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "login", length = 50, nullable = false, unique = true)
-    private String login;
+    @Column(name = "name")
+    private String name;
 
-    @Column(name = "password", length = 20, nullable = false)
-    private String password;
+    @Column(name = "passive")
+    private String passive;
 
-    @OneToOne(cascade = CascadeType.ALL)
+    @Column(name = "active")
+    private String active;
+
+    @Column(name = "cooldown")
+    private Integer cooldown;
+
+    @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "sheet_id", referencedColumnName = "sheet_id", nullable = false)
     private Sheet sheet;
 }

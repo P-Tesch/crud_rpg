@@ -1,6 +1,6 @@
 package com.tesch.rpg.entities;
 
-import java.util.Set;
+import java.util.List;
 
 import com.tesch.rpg.enums.Alignment;
 import com.tesch.rpg.enums.Organization;
@@ -33,7 +33,7 @@ public class Sheet {
     private String name;
 
     @Column(name = "portrait", nullable = false)
-    private Byte[] portrait;
+    private byte[] portrait;
 
     @Column(name = "description", nullable = false)
     private String description;
@@ -63,5 +63,23 @@ public class Sheet {
     private Attributes attributes;
 
     @OneToMany(mappedBy = "sheet", cascade = CascadeType.ALL)
-    private Set<Advantage> advantages;
+    private List<Advantage> advantages;
+
+    @OneToMany(mappedBy = "sheet", cascade = CascadeType.ALL)
+    private List<School> schools;
+
+    @OneToMany(mappedBy = "sheet", cascade = CascadeType.ALL)
+    private List<MysticEyes> mysticEyes;
+
+    @OneToMany(mappedBy = "sheet", cascade = CascadeType.ALL)
+    private List<Miracle> miracles;
+
+    @OneToOne(mappedBy = "sheet", cascade = CascadeType.ALL)
+    private Scripture scripture;
+
+    @OneToMany(mappedBy = "sheet", cascade = CascadeType.ALL)
+    private List<Item> items;
+
+    @OneToOne(mappedBy = "sheet", cascade = CascadeType.ALL)
+    private Blood blood;
 }

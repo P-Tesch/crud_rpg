@@ -7,29 +7,29 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
-import jakarta.persistence.OneToOne;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import lombok.Builder;
 import lombok.Data;
 
 @Entity
-@Table(name = "users")
-@Builder
+@Table(name = "blood_abilities")
 @Data
-public class User {
+@Builder
+public class BloodAbility {
     
     @Id
-    @Column(name = "user_id")
+    @Column(name = "blood_ability_id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "login", length = 50, nullable = false, unique = true)
-    private String login;
+    @Column(name = "name")
+    private String name;
 
-    @Column(name = "password", length = 20, nullable = false)
-    private String password;
+    @Column(name = "description")
+    private String description;
 
-    @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "sheet_id", referencedColumnName = "sheet_id", nullable = false)
-    private Sheet sheet;
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "blood_id", referencedColumnName = "blood_id", nullable = false)
+    private Blood blood;
 }
