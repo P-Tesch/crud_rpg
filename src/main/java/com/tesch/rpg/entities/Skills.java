@@ -10,7 +10,7 @@ import lombok.Builder;
 import lombok.Data;
 
 @Entity
-@Table(name = "sheets")
+@Table(name = "skills")
 @Builder
 @Data
 public class Skills {

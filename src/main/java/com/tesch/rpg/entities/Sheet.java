@@ -80,6 +80,12 @@ public class Sheet {
     @OneToMany(mappedBy = "sheet", cascade = CascadeType.ALL)
     private List<Item> items;
 
+    @OneToMany(mappedBy = "sheet", cascade = CascadeType.ALL)
+    private List<Effect> effects;
+
+    @OneToMany(mappedBy = "sheet", cascade = CascadeType.ALL)
+    private List<Sonata> sonatas;
+
     @OneToOne(mappedBy = "sheet", cascade = CascadeType.ALL)
     private Blood blood;
 }

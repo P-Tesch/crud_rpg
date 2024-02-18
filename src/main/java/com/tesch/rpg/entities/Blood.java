@@ -37,5 +37,9 @@ public class Blood {
     private Stats stats;
 
     @OneToMany(mappedBy = "blood")
-    private List<BloodAbility> abilities;
+    private List<BloodAbility> bloodAbilities;
+
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "sheet_id", referencedColumnName = "sheet_id", nullable = false)
+    private Sheet sheet;
 }
